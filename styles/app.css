@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Lexend Deca', 'sans-serif';
+  font-size: 14px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th {
+  @apply bg-blue-900 text-white text-[11px];
+}
+
+table tr:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+
+table td {
+  @apply text-[11px];
+}
+
+table .totals {
+  @apply font-bold border-t-[1px];
+  @apply border-b-2 border-gray-900;
+}
