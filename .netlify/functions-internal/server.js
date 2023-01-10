@@ -185,7 +185,7 @@ var import_numeral = __toESM(require("numeral")), math = __toESM(require("mathjs
     let key = item.slug;
     x[key] = (item == null ? void 0 : item.formula) || validateInput(item.input);
   }), x;
-}, validateInput = (input) => `${math.evaluate(input)}`, computeSpread = (years, spreadData, spreadDataObject) => {
+}, validateInput = (input) => (input = input.replace("=", ""), `${math.evaluate(input)}`), computeSpread = (years, spreadData, spreadDataObject) => {
   let result = [], kk = spreadDataObject;
   return years.sort((a, b) => Number(a) - Number(b)), years.forEach((year) => {
     let items = spreadData[year], arr = [];
@@ -463,7 +463,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "73bccc9c", entry: { module: "/build/entry.client-JFLMTQEP.js", imports: ["/build/_shared/chunk-LYAC43W4.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-EONISAR5.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-4NK2SUOY.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-73BCCC9C.js" };
+var assets_manifest_default = { version: "a6a6746d", entry: { module: "/build/entry.client-JFLMTQEP.js", imports: ["/build/_shared/chunk-LYAC43W4.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-EONISAR5.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-MZTZFI4E.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-A6A6746D.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public\\build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
