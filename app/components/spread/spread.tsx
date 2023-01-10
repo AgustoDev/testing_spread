@@ -6,7 +6,7 @@ import { spreadCompute, spreadFormatting } from '~/modules/spread/spread.control
 import type { CompanyLoader } from '~/routes';
 
 const Spread = () => {
-  const itemsRef = useRef<any>([]);
+  const itemsRef = useRef<any>({});
   const [newYears, setNewYears] = useState<any>([]);
   const { spreadData, company } = useLoaderData() as CompanyLoader;
   const [rawData, setRawData] = useState<any[][]>([]);
@@ -52,6 +52,42 @@ const Spread = () => {
     setIsFocused(refIndex);
   };
 
+  const handleKeyUp = ({ e, refIndex, item }: { e: any; refIndex: string; item: CompanyData }) => {
+    e.preventDefault();
+    const keys = [9, 38, 40];
+
+    if (!keys.includes(e.keyCode)) return;
+    if (e.keyCode === 13) itemsRef.current[refIndex].blur();
+
+    let enterTabDown = e.keyCode === 9 || e.keyCode === 13 || e.keyCode === 40;
+    let upArrow = e.keyCode === 38;
+    let leftArrow = e.keyCode === 37;
+    let right = e.keyCode === 39;
+
+    onBlur({ refIndex, item });
+    if (enterTabDown) tabCell(refIndex, 'down');
+    if (upArrow) tabCell(refIndex, 'up');
+    //if (leftArrow) tabCell(refIndex, 'left');
+    //if (right) tabCell(refIndex, 'right');
+  };
+
+  const tabCell = (refIndex: string, movement: 'up' | 'down' | 'left' | 'right') => {
+    let lastChar = refIndex.charAt(refIndex.length - 1);
+    let add = movement === 'down' ? Number(1) + Number(lastChar) : Number(lastChar) - Number(1);
+    let newRefIndex = refIndex.slice(0, -1) + add;
+
+    if (!itemsRef.current[newRefIndex]) return;
+    const inputEl = itemsRef.current[newRefIndex].getAttribute('contentEditable');
+
+    //recursively call tabCell until it finds a cell that is editable
+    if (inputEl === false) {
+      tabCell(newRefIndex, movement);
+      return;
+    }
+
+    itemsRef.current[newRefIndex].focus();
+  };
+
   //on blur update company data
   const onBlur = ({ refIndex, item }: { refIndex: string; item: CompanyData }) => {
     setIsFocused('');
@@ -63,6 +99,14 @@ const Spread = () => {
       let yearIndex = rawData.findIndex((item) => item[0].year === year);
       let titleIndex = rawData[yearIndex].findIndex((item) => item.title === title);
       let newData = rawData;
+
+      let value = currentRef.textContent;
+
+      if (currentRef.textContent?.includes('\n')) {
+        value = value.replace(/\n/g, '');
+        currentRef.textContent = value;
+      }
+
       newData[yearIndex][titleIndex].input = currentRef?.textContent || '0';
       setUpdateRawData(newData);
     }
@@ -119,7 +163,7 @@ const Spread = () => {
               <tr key={i} className={`${el.class}`}>
                 <td className="p-3 text-left border-l-2 ">{el.title}</td>
                 {spread[i].map((item, ii) => {
-                  let refIndex = `${item.slug}${item.year}`;
+                  let refIndex = `year_${item.year}_${i}`;
                   return (
                     <td
                       ref={(el) => (itemsRef.current[refIndex] = el)}
@@ -127,8 +171,9 @@ const Spread = () => {
                       onFocus={(e) => onFocus(refIndex)}
                       onBlur={(e) => onBlur({ refIndex, item })}
                       contentEditable={item?.isInput}
+                      onKeyUp={(e) => handleKeyUp({ e, refIndex, item })}
                       suppressContentEditableWarning={true}
-                      className={`${item.class} p-3 text-center min-w-[10vw]`}
+                      className={`${item.class} single-line p-3 text-center min-w-[10vw]`}
                     >
                       {isFocused === refIndex ? item?.input : item?.value}
                     </td>

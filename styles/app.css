@@ -29,3 +29,16 @@ table .totals {
   @apply font-bold border-t-[1px];
   @apply border-b-2 border-gray-900;
 }
+
+[contenteditable='true'].single-line {
+  white-space: nowrap;
+  width: 200px;
+  overflow: hidden;
+}
+[contenteditable='true'].single-line br {
+  display: none;
+}
+[contenteditable='true'].single-line * {
+  display: inline;
+  white-space: nowrap;
+}
