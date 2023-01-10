@@ -226,9 +226,9 @@ var import_jsx_dev_runtime3 = require("react/jsx-dev-runtime"), Spread = () => {
   }, onFocus = (refIndex) => {
     setIsFocused(refIndex);
   }, handleKeyUp = ({ e, refIndex, item }) => {
-    if (e.preventDefault(), ![9, 38, 40].includes(e.keyCode))
+    if (e.preventDefault(), ![13, 38, 40].includes(e.keyCode))
       return;
-    e.keyCode === 13 && itemsRef.current[refIndex].blur();
+    itemsRef.current[refIndex].blur();
     let enterTabDown = e.keyCode === 9 || e.keyCode === 13 || e.keyCode === 40, upArrow = e.keyCode === 38, leftArrow = e.keyCode === 37, right = e.keyCode === 39;
     onBlur({ refIndex, item }), enterTabDown && tabCell(refIndex, "down"), upArrow && tabCell(refIndex, "up");
   }, tabCell = (refIndex, movement) => {
@@ -263,44 +263,44 @@ var import_jsx_dev_runtime3 = require("react/jsx-dev-runtime"), Spread = () => {
     /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { className: "flex items-center gap-4", children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("button", { className: "p-3 mb-4 text-xs text-white uppercase bg-green-700 rounded ", onClick: addNewYear, children: "Add New Year" }, void 0, !1, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 139,
+        lineNumber: 140,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("button", { className: "p-3 mb-4 text-xs text-white uppercase bg-red-700 rounded ", onClick: clearData, children: "reset data" }, void 0, !1, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 143,
+        lineNumber: 144,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/components/spread/spread.tsx",
-      lineNumber: 138,
+      lineNumber: 139,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("table", { className: "w-full uppercase ", children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("thead", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("tr", { className: "", children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("th", { className: "w-full p-3 text-left border-l-2", children: "Year" }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 151,
+          lineNumber: 152,
           columnNumber: 13
         }, this),
         years.map((item, i) => /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("th", { className: "p-3 border-l-2", children: item }, i, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 153,
+          lineNumber: 154,
           columnNumber: 15
         }, this))
       ] }, void 0, !0, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 150,
+        lineNumber: 151,
         columnNumber: 11
       }, this) }, void 0, !1, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 149,
+        lineNumber: 150,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("tbody", { children: keys.map((el, i) => /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("tr", { className: `${el.class}`, children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("td", { className: "p-3 text-left border-l-2 ", children: el.title }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 164,
+          lineNumber: 165,
           columnNumber: 17
         }, this),
         spread[i].map((item, ii) => {
@@ -321,7 +321,7 @@ var import_jsx_dev_runtime3 = require("react/jsx-dev-runtime"), Spread = () => {
             !1,
             {
               fileName: "app/components/spread/spread.tsx",
-              lineNumber: 168,
+              lineNumber: 169,
               columnNumber: 21
             },
             this
@@ -329,136 +329,136 @@ var import_jsx_dev_runtime3 = require("react/jsx-dev-runtime"), Spread = () => {
         })
       ] }, i, !0, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 163,
+        lineNumber: 164,
         columnNumber: 15
       }, this)) }, void 0, !1, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 161,
+        lineNumber: 162,
         columnNumber: 11
       }, this)
     ] }, void 0, !0, {
       fileName: "app/components/spread/spread.tsx",
-      lineNumber: 148,
+      lineNumber: 149,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { className: "mt-20", children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("h2", { className: "font-bold uppercase", children: "NOTE:" }, void 0, !1, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 189,
+        lineNumber: 190,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("li", { children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "font-bold", children: "1. " }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 192,
+          lineNumber: 193,
           columnNumber: 11
         }, this),
         " To add new year click on the",
         " ",
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "font-bold uppercase", children: "Add New Year (min 2018)" }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 193,
+          lineNumber: 194,
           columnNumber: 11
         }, this),
         " "
       ] }, void 0, !0, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 191,
+        lineNumber: 192,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("li", { children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "font-bold", children: "2. " }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 197,
+          lineNumber: 198,
           columnNumber: 11
         }, this),
         " To reset data click on the",
         " ",
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "font-bold uppercase", children: "reset data" }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 198,
+          lineNumber: 199,
           columnNumber: 11
         }, this),
         " "
       ] }, void 0, !0, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 196,
+        lineNumber: 197,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("li", { children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "font-bold", children: "3. " }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 202,
+          lineNumber: 203,
           columnNumber: 11
         }, this),
         " To edit data click on the cell and edit the value"
       ] }, void 0, !0, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 201,
+        lineNumber: 202,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("li", { children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "font-bold", children: "4. " }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 206,
+          lineNumber: 207,
           columnNumber: 11
         }, this),
         " To save data click outside the cell (Just like excel)"
       ] }, void 0, !0, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 205,
+        lineNumber: 206,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("li", { children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "font-bold", children: "5. " }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 210,
+          lineNumber: 211,
           columnNumber: 11
         }, this),
         " You can also use expression ",
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("br", {}, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 210,
+          lineNumber: 211,
           columnNumber: 78
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "block mt-4 font-bold uppercase", children: "eg:" }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 211,
+          lineNumber: 212,
           columnNumber: 11
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "block mt-1", children: "1. 100 + 200 " }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 212,
+          lineNumber: 213,
           columnNumber: 11
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "block mt-1", children: "2. 100 - 200 " }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 213,
+          lineNumber: 214,
           columnNumber: 11
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "block mt-1", children: "3. 100 * 200 " }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 214,
+          lineNumber: 215,
           columnNumber: 11
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("span", { className: "block mt-1", children: "4. 100 / 200 " }, void 0, !1, {
           fileName: "app/components/spread/spread.tsx",
-          lineNumber: 215,
+          lineNumber: 216,
           columnNumber: 11
         }, this)
       ] }, void 0, !0, {
         fileName: "app/components/spread/spread.tsx",
-        lineNumber: 209,
+        lineNumber: 210,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/components/spread/spread.tsx",
-      lineNumber: 188,
+      lineNumber: 189,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/components/spread/spread.tsx",
-    lineNumber: 137,
+    lineNumber: 138,
     columnNumber: 5
   }, this);
 }, spread_default = Spread;
@@ -481,7 +481,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "a376c79a", entry: { module: "/build/entry.client-JFLMTQEP.js", imports: ["/build/_shared/chunk-LYAC43W4.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-BPBY6F5P.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-U25FVIKA.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-A376C79A.js" };
+var assets_manifest_default = { version: "38b1630b", entry: { module: "/build/entry.client-JFLMTQEP.js", imports: ["/build/_shared/chunk-LYAC43W4.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-BPBY6F5P.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-TWVKS7UA.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-38B1630B.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public\\build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

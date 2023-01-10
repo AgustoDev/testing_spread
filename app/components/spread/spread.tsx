@@ -54,10 +54,11 @@ const Spread = () => {
 
   const handleKeyUp = ({ e, refIndex, item }: { e: any; refIndex: string; item: CompanyData }) => {
     e.preventDefault();
-    const keys = [9, 38, 40];
+    const keys = [13, 38, 40];
 
     if (!keys.includes(e.keyCode)) return;
-    if (e.keyCode === 13) itemsRef.current[refIndex].blur();
+
+    itemsRef.current[refIndex].blur();
 
     let enterTabDown = e.keyCode === 9 || e.keyCode === 13 || e.keyCode === 40;
     let upArrow = e.keyCode === 38;
