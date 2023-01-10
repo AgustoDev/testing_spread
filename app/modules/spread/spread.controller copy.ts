@@ -54,6 +54,7 @@ const flattenArrayToObject = (array: any) => {
 };
 
 const validateInput = (input: any) => {
+  input = input.replace(/=/g, "'");
   return `${math.evaluate(input)}`;
 };
 
