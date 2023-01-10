@@ -5,7 +5,7 @@ interface CompanyData {
   slug: string;
   formula?: string;
   input?: string;
-  value?: number;
+  value?: string;
   class?: string;
 }
 

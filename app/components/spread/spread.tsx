@@ -50,13 +50,17 @@ const Spread = () => {
   //on focus change the value of cell to input
   const onFocus = (refIndex: string) => {
     setIsFocused(refIndex);
+    let inputEl: any = itemsRef.current[refIndex];
+    if (inputEl?.textContent === '0') inputEl.textContent = '';
   };
 
   const handleKeyUp = ({ e, refIndex, item }: { e: any; refIndex: string; item: CompanyData }) => {
     e.preventDefault();
     const keys = [13, 38, 40];
 
-    if (!keys.includes(e.keyCode)) return;
+    if (!keys.includes(e.keyCode)) {
+      return;
+    }
 
     itemsRef.current[refIndex].blur();
 

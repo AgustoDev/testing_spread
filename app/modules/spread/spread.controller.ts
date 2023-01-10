@@ -32,7 +32,7 @@ export const spreadCompute = ({ newYears, rawData }: { newYears?: number[] | nul
   const years = Object.keys(spreadData).sort((a, b) => Number(a) - Number(b));
 
   years.forEach((el) => {
-    const x = flattenArrayToObject(spreadData[el]);
+    const x = flattenArrayToObject(spreadData[el], el);
     spreadDataObject[el] = x;
   });
   spread = computeSpread(years, spreadData, spreadDataObject);
@@ -43,19 +43,24 @@ export const spreadCompute = ({ newYears, rawData }: { newYears?: number[] | nul
   return spread;
 };
 
-const flattenArrayToObject = (array: any) => {
+const flattenArrayToObject = (array: any, year: any) => {
   let x: any | null = {};
 
   array.forEach((item: CompanyData) => {
     let key = item.slug;
-    x[key] = item?.formula || validateInput(item.input);
+    x[key] = item?.formula || validateInput(item.input, key, year);
   });
   return x;
 };
 
-const validateInput = (input: any) => {
-  input = input.replace('=', '');
-  return `${math.evaluate(input)}`;
+const validateInput = (input: any, slug: any, year: any) => {
+  try {
+    input = input.replace('=', '');
+    return `${math.evaluate(input)}`;
+  } catch (error) {
+    alert(`Invalid input for ${slug} in ${year}`);
+    return 0;
+  }
 };
 
 const computeSpread = (years: string[], spreadData: any, spreadDataObject: any) => {
