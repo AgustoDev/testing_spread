@@ -66,8 +66,8 @@ const Spread = () => {
 
     let enterTabDown = e.keyCode === 9 || e.keyCode === 13 || e.keyCode === 40;
     let upArrow = e.keyCode === 38;
-    let leftArrow = e.keyCode === 37;
-    let right = e.keyCode === 39;
+    //let leftArrow = e.keyCode === 37;
+    //let right = e.keyCode === 39;
 
     onBlur({ refIndex, item });
     if (enterTabDown) tabCell(refIndex, 'down');
